@@ -220,7 +220,7 @@ namespace loja{
     };
 
     bool Loja::adicionarProduto(int tipo){
-        string nome, marca, descricao, cor, processador;
+        string nome, marca, descricao, cor, processador, aux1, aux2;
         char hasBatery, hasBluetooth, hasRGB;
         int qtd, tamTela, bateria;
         double preco, tamanho;
@@ -233,6 +233,18 @@ namespace loja{
         cout << "Nome (o nome deve ser único para cada produto): " << endl;
         getline(cin, nome);
         cout << "\n";
+
+        // Verificar se já existe um produto com o nome de entrada
+        for(long unsigned int i = 0; i < DB.size(); i++){
+            aux1 = DB[i]->getNome();
+            aux2 = nome;
+            for (auto & c: aux1) c = toupper(c);
+            for (auto & c: aux2) c = toupper(c);
+            if(aux1 == aux2){
+                cout << "Já existe um produto com esse nome no sistema." << endl;
+                return false;
+            }
+        }
 
         // Leitura da marca
         cout << "Marca: " << endl;
