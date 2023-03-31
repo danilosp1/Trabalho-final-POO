@@ -1,10 +1,10 @@
 #include "Periferico.h"
 
 namespace loja{
-    Periferico::Periferico(string nome, string marca, string descricao, string cor, int preco, int qtd, int tamanho, bool temBateria, bool temBluetooth, bool temRGB) : Produto(nome, marca, descricao, cor, preco, qtd), tamanho(tamanho), temBateria(temBateria), temBluetooth(temBluetooth), temRGB(temRGB){};
+    Periferico::Periferico(string nome, string marca, string descricao, string cor, double preco, int qtd, double tamanho, bool temBateria, bool temBluetooth, bool temRGB) : Produto(nome, marca, descricao, cor, preco, qtd), tamanho(tamanho), temBateria(temBateria), temBluetooth(temBluetooth), temRGB(temRGB){};
     Periferico::~Periferico(){};
     
-    int Periferico::getTamanho() const{
+    double Periferico::getTamanho() const{
         return this->tamanho;
     };
     bool Periferico::getTemBateria() const{
@@ -17,7 +17,7 @@ namespace loja{
         return this->temRGB;
     };
 
-    void Periferico::setTamanho(int tamanho){
+    void Periferico::setTamanho(double tamanho){
         this->tamanho = tamanho;
     };
     void Periferico::setTemBateria(bool temBateria){
@@ -42,9 +42,9 @@ namespace loja{
         cout << "Quantidade em estoque: " << this->getQtd() << endl;
         cout << "Cor: " << this->getCor() << endl;
         cout << "Tamanho: " << this->tamanho << endl;
-        cout << "Possui bateria?: " << this->temBateria << endl;
-        cout << "Possui conexão bluetooth?: " << this->temBluetooth << endl;
-        cout << "Possui iluminação RGB?: " << this->temRGB << endl;
+        cout << "Possui bateria?: " << ((this->temBateria == 1) ? "Sim" : "Não") << endl;
+        cout << "Possui conexão bluetooth?: " << ((this->temBluetooth == 1) ? "Sim" : "Não") << endl;
+        cout << "Possui iluminação RGB?: " << ((this->temRGB == 1) ? "Sim" : "Não") << endl;
         cout << "Preço: " << this->getPreco() << endl;
         
         cout << "--------------------------------------------" << endl;

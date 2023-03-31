@@ -9,7 +9,7 @@ using namespace std;
 namespace loja{
     class Produto{
         public:
-            Produto(string nome, string marca, string descricao, string cor, int preco, int qtd);
+            Produto(string nome, string marca, string descricao, string cor, double preco, int qtd);
             virtual ~Produto();
             virtual int getCategoria() const = 0;
             virtual void imprimir() const = 0;
@@ -18,14 +18,14 @@ namespace loja{
             string getMarca() const;
             string getDescricao() const;
             string getCor() const;
-            int getPreco() const;
+            double getPreco() const;
             int getQtd() const;
             
             void setNome(string nome);
             void setMarca(string marca);
             void setDescricao(string descricao);
             void setCor(string cor);
-            void setPreco(int preco);
+            void setPreco(double preco);
             void setQtd(int qtd);
  
         private:
@@ -33,7 +33,7 @@ namespace loja{
             string marca;
             string descricao;
             string cor;
-            int preco;
+            double preco;
             int qtd;
     };
 }

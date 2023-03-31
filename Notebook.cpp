@@ -24,7 +24,7 @@ namespace loja{
         this->processador = processador;
     }
     int Notebook::getCategoria() const{
-        return 2;
+        return 0;
     };
 
     void Notebook::imprimir() const{

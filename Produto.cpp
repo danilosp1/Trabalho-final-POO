@@ -1,7 +1,7 @@
 #include "Produto.h"
 
 namespace loja{
-    Produto::Produto(string nome, string marca, string descricao, string cor, int preco, int qtd) : nome(nome), marca(marca), descricao(descricao), cor(cor), preco(preco), qtd(qtd){};
+    Produto::Produto(string nome, string marca, string descricao, string cor, double preco, int qtd) : nome(nome), marca(marca), descricao(descricao), cor(cor), preco(preco), qtd(qtd){};
     Produto::~Produto(){};
 
     string Produto::getNome() const {
@@ -16,7 +16,7 @@ namespace loja{
     string Produto::getCor() const{
         return this->cor;
     };
-    int Produto::getPreco() const{
+    double Produto::getPreco() const{
         return this->preco;
     };
     int Produto::getQtd() const{
@@ -36,7 +36,7 @@ namespace loja{
     void Produto::setCor(string cor){
         this->cor = cor;
     };
-    void Produto::setPreco(int preco){
+    void Produto::setPreco(double preco){
         this->preco = preco;
     };
     void Produto::setQtd(int qtd){

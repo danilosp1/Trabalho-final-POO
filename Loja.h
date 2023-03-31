@@ -14,10 +14,11 @@ namespace loja{
             Loja(const string fileName);
             virtual ~Loja();
 
-            bool adicionarProduto(Produto* Produto);
+            bool adicionarProduto(int tipo);
             bool editarProduto(string nome);
             bool removerProduto(string nome);
             void listarProdutos();
+            static int opcao();
 
         private:
             void escrita();

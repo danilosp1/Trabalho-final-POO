@@ -10,15 +10,15 @@ using namespace std;
 namespace loja{
     class Periferico : public Produto{
         public:
-            Periferico(string nome, string marca, string descricao, string cor, int preco, int qtd, int tamanho, bool temBateria, bool temBluetooth, bool temRGB);
+            Periferico(string nome, string marca, string descricao, string cor, double preco, int qtd, double tamanho, bool temBateria, bool temBluetooth, bool temRGB);
             virtual ~Periferico();
             
-            int getTamanho() const;
+            double getTamanho() const;
             bool getTemBateria() const;
             bool getTemBluetooth() const;
             bool getTemRGB() const;
 
-            void setTamanho(int tamanho);
+            void setTamanho(double tamanho);
             void setTemBateria(bool temBateria);
             void setTemBluetooth(bool temBluetooth);
             void setTemRGB(bool temRGB);
@@ -26,7 +26,7 @@ namespace loja{
             int getCategoria() const;
             void imprimir() const;
         private:
-            int tamanho;
+            double tamanho;
             bool temBateria;
             bool temBluetooth;
             bool temRGB;

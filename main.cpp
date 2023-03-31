@@ -8,16 +8,51 @@ using namespace std;
 using namespace loja;
 
 void teste(){
-    Produto *f1 = new Notebook("Aspire 5", "Acer", "Grande, bonito e legal", "Azul", 10000, 10, 15, 2500, "Intel core I5");
-    Produto *f2 = new Notebook("Aspire 3", "Acer", "Grande, bonito e legal", "Cinza", 14000, 2, 15, 2500, "Intel core I3");
+    int op;
+    bool sucesso;
+    string nome;
 
-    Loja listagem("Arquivo.dat");
-    listagem.adicionarProduto(f1);
-    listagem.adicionarProduto(f2);
-    listagem.listarProdutos();
+    Loja novaLoja("registro.dat");
 
-    delete f1;
-    delete f2;
+    do {
+        op = Loja::opcao();
+        cout << "\n";
+        switch (op)
+        {
+        case 1:
+            novaLoja.listarProdutos();
+            break;
+        case 2:
+            sucesso = novaLoja.adicionarProduto(0);
+            cout << "Adição " << (sucesso ? "bem sucessida." : "falhou.") << endl;
+            break;
+        case 3:
+            sucesso = novaLoja.adicionarProduto(1);
+            cout << "Adição " << (sucesso ? "bem sucessida." : "falhou.") << endl;
+            break;
+        case 4:
+            cin.ignore();
+            cout << "Digite o nome do produto a ser editado: " << endl;
+            getline(cin, nome);
+            sucesso = novaLoja.editarProduto(nome);
+            cout << "Edição " << (sucesso ? "bem sucessida." : "falhou.") << endl;
+            break;
+        case 5:
+            cin.ignore();
+            cout << "Digite o nome do produto a ser removido: " << endl;
+            getline(cin, nome);
+            sucesso = novaLoja.removerProduto(nome);
+            cout << "Remoção " << (sucesso ? "bem sucessida." : "falhou.") << endl;
+            break;
+        case 6:
+            cout << "Programa finalizado com sucesso!" << endl;
+            break;
+        default:
+            cout << "Opção inválida." << endl;
+            break;
+        }
+        cin.ignore();
+    } while (op != 6);
 }
 
 int main(){
